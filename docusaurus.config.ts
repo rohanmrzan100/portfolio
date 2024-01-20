@@ -1,13 +1,13 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-
+import siteLogo from "@site/static/img/developer-centerpublic-api-svgrepo-com.svg";
 const config: Config = {
   title: "Rohan Maharjan",
   tagline: "Rohan Maharjan",
 
   // Set the production url of your site here
-  url: "https://rohanmaharjan.com.np",
+  url: "https://maharjanrohan.netlify.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -16,6 +16,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "Rohan Maharjan", // Usually your GitHub org/user name.
   projectName: "Rohan Maharjan", // Usually your repo name.
+  favicon: "img/siteLogo.svg",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -29,20 +30,7 @@ const config: Config = {
     [
       "classic",
       {
-        docs: {
-          sidebarPath: false,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        // },
+        docs: false,
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -51,31 +39,54 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/siteLogo.svg",
     navbar: {
-      title: "Home",
       hideOnScroll: true,
-      // logo: {
-      //   alt: "My Site Logo",
-      //   src: "img/logo.svg",
-      // },
+      style: "dark",
+      title: "Rohan Maharjan",
+      logo: {
+        alt: "My Site Logo",
+        src: "img/siteLogo.svg",
+      },
+      items: [
+        {
+          position: "left",
+          label: "Tutorials",
+          to: "tutorials",
+        },
+        {
+          type: "html",
+          position: "right",
+          value: `<button class="navBtn" onclick="window.location.href='/#contact'">Say Hello !</button>
+`,
+        },
+      ],
     },
     footer: {
       style: "dark",
-      copyright: `Copyright © ${new Date().getFullYear()} Rohan Maharjan, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Rohan Maharjan.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    colorMode: {
+      disableSwitch: true,
+    },
   } satisfies Preset.ThemeConfig,
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "tutorials",
+        path: "tutorials",
+        routeBasePath: "tutorials",
+      },
+    ],
     async function myPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",
         configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
           postcssOptions.plugins.push(require("tailwindcss"));
           postcssOptions.plugins.push(require("autoprefixer"));
           return postcssOptions;
