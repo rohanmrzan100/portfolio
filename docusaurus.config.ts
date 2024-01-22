@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import siteLogo from "@site/static/img/developer-centerpublic-api-svgrepo-com.svg";
+
 const config: Config = {
   title: "Rohan Maharjan",
   tagline: "Rohan Maharjan",
@@ -39,6 +39,22 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      { name: "Rohan Maharjan", content: "Web Development, FullStack,blog" },
+      { name: "Maharjan", content: "blog" },
+      { name: "Rohan", content: "blog" },
+    ],
+    headTags: [
+      // Declare a <link> preconnect tag
+      {
+        tagName: "link",
+        attributes: {
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com",
+        },
+      },
+    ],
+
     image: "img/siteLogo.svg",
     navbar: {
       hideOnScroll: true,
@@ -47,6 +63,8 @@ const config: Config = {
       logo: {
         alt: "My Site Logo",
         src: "img/siteLogo.svg",
+        height: "35px",
+        width: "35px",
       },
       items: [
         {
@@ -67,7 +85,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Rohan Maharjan.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
     },
     colorMode: {

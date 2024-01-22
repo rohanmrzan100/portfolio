@@ -10,8 +10,8 @@ tags:
 ```js
 console.log('Hello World !.');
 ```
-:::tip
+:::danger
 
-Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+Some **content** with _Markdown_ .
 
 :::

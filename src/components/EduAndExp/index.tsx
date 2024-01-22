@@ -17,9 +17,9 @@ const EduAndExp = () => {
             <li className="group relative flex flex-col pb-8 pl-7 last:pb-0">
               <div className="absolute bottom-0 left-[calc(0.25rem-0.5px)] top-0 w-px bg-white/10 group-first:top-3"></div>
               <div className="absolute left-0 top-2 h-2 w-2 rounded-full border border-sky-300 bg-zinc-950"></div>
-              <h3 className="mt-2 text-sm/6 font-semibold text-white">
+              <h1 className="mt-2 text-sm/6 font-semibold text-white">
                 Bachelor's in Computer Engineering
-              </h3>
+              </h1>
               <p className="font-display text-2xs/6 order-first font-semibold tracking-[0.2em] text-sky-300">
                 Graduated Year 2024
               </p>
@@ -30,9 +30,9 @@ const EduAndExp = () => {
             <li className="group relative flex flex-col pb-8 pl-7 last:pb-0">
               <div className="absolute bottom-0 left-[calc(0.25rem-0.5px)] top-0 w-px bg-white/10 group-first:top-3"></div>
               <div className="absolute left-0 top-2 h-2 w-2 rounded-full border border-sky-300 bg-zinc-950"></div>
-              <h3 className="mt-2 text-sm/6 font-semibold text-white">
+              <h1 className="mt-2 text-sm/6 font-semibold text-white">
                 High School +2 Science
-              </h3>
+              </h1>
               <p className="font-display text-2xs/6 order-first font-semibold tracking-[0.2em] text-sky-300">
                 Graduated Year 2019
               </p>
@@ -43,9 +43,9 @@ const EduAndExp = () => {
             <li className="group relative flex flex-col pb-8 pl-7 last:pb-0">
               <div className="absolute bottom-0 left-[calc(0.25rem-0.5px)] top-0 w-px bg-white/10 group-first:top-3"></div>
               <div className="absolute left-0 top-2 h-2 w-2 rounded-full border border-sky-300 bg-zinc-950"></div>
-              <h3 className="mt-2 text-sm/6 font-semibold text-white">
+              <h1 className="mt-2 text-sm/6 font-semibold text-white">
                 School SEE
-              </h3>
+              </h1>
               <p className="font-display text-2xs/6 order-first font-semibold tracking-[0.2em] text-sky-300">
                 Graduated Year 2017
               </p>

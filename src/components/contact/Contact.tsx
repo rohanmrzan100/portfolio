@@ -43,6 +43,7 @@ const Contact: React.FC = () => {
             <div className="flex justify-start px-0 m-0 gap-8 items-center py-8">
               <a
                 href="https://github.com/rohanmaharjan100"
+                aria-label="Go to my github page"
                 target="_blank"
                 rel="noreferrer noopener"
                 className=" border border-gray-900 rounded-xl hover:scale-105 hover:text-gray-300 "
@@ -53,6 +54,7 @@ const Contact: React.FC = () => {
               <a
                 href="https://www.linkedin.com/in/rohan-maharjan-98307a230/"
                 target="_blank"
+                aria-label="go to my linkedin page"
                 rel="noreferrer noopener"
                 className=" rounded-xl hover:text-gray-300 hover:scale-105"
               >
@@ -63,6 +65,7 @@ const Contact: React.FC = () => {
               href="/Rohan-Maharjan-CV.pdf"
               download="Rohan_Maharjan_Resume"
               target="_blank"
+              aria-label="Download My Resume"
               className="relative inline-flex items-center justify-center overflow-hidden font-medium text-[--ifm-color-primary] transition duration-300 ease-out border-2 border-[--ifm-color-primary] rounded-xl shadow-md group w-10/12 mb-6 h-16 active:scale-110"
             >
               <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[--ifm-color-primary] group-hover:translate-x-0 ease">
@@ -83,9 +86,12 @@ const Contact: React.FC = () => {
         </div>
         <form onSubmit={notify}>
           <div>
-            <span className="uppercase text-sm text-white font-bold">
+            <label
+              htmlFor="name"
+              className="uppercase text-sm text-white font-bold"
+            >
               Full Name
-            </span>
+            </label>
             <input
               name="name"
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -94,9 +100,12 @@ const Contact: React.FC = () => {
             />
           </div>
           <div className="mt-8">
-            <span className="uppercase text-sm text-white font-bold">
+            <label
+              htmlFor="email"
+              className="uppercase text-sm text-white font-bold"
+            >
               Email
-            </span>
+            </label>
             <input
               name="email"
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -104,9 +113,12 @@ const Contact: React.FC = () => {
             />
           </div>
           <div className="mt-8">
-            <span className="uppercase text-sm text-white font-bold">
+            <label
+              htmlFor="text"
+              className="uppercase text-sm text-white font-bold"
+            >
               Message
-            </span>
+            </label>
             <textarea
               name="text"
               className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"

@@ -4,6 +4,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Karla&display=swap");
 :root {
+  --ifm-color-content-secondary: white;
   --ifm-color-primary: #2ecc71;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -15,12 +16,14 @@
   --ifm-menu-color: white;
   --ifm-menu-color-active: rgb(104, 172, 209);
 
-  --bg-primary: #111827;
+  --bg-primary: #0D0B14;
+
+  --ifm-breadcrumb-separator: none;
 }
 .navBtn {
   width: 150px;
   height: 40px;
-  border: 2px solid var( --ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
   position: relative;
   overflow: hidden;
   background-color: transparent;
@@ -31,7 +34,7 @@
   transition: 0.3s;
   z-index: 1;
   font-family: inherit;
-  color: var( --ifm-color-primary);
+  color: var(--ifm-color-primary);
 }
 
 .navBtn::before {
@@ -42,7 +45,7 @@
   top: 70%;
   left: 60%;
   transform: translate(-50%, -50%) rotate(45deg);
-  background: var( --ifm-color-primary);
+  background: var(--ifm-color-primary);
   transition: 0.5s ease;
   display: block;
   z-index: -1;
@@ -94,7 +97,6 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-
 }
 
 .breadcrumbs__link {
