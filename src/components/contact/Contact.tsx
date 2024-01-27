@@ -39,7 +39,6 @@ const Contact: React.FC = () => {
         response.json();
       })
       .then((data) => {
-        console.log("Response:", data);
         toast.success(`Your message has been sent.\nThank you ${name}`);
       })
       .catch((error) => {
