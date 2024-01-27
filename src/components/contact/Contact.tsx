@@ -8,7 +8,6 @@ import { BASE_URL } from "@site/src/Constants";
 const Contact: React.FC = () => {
   const notify = (event: any) => {
     event.preventDefault();
-    toast.loading("Loading...");
     const name = event.target.name.value;
     const email = event.target.email.value;
     const message = event.target.text.value;
@@ -17,6 +16,7 @@ const Contact: React.FC = () => {
       toast.error("Please input all fields");
       return;
     }
+    const loadingToast = toast.loading("Loading...");
 
     const data = {
       name: name,
@@ -32,13 +32,20 @@ const Contact: React.FC = () => {
       body: JSON.stringify(data),
     };
     fetch(BASE_URL + "/api/mail/send", requestOptions)
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+
+        response.json();
+      })
       .then((data) => {
         console.log("Response:", data);
         toast.success(`Your message has been sent.\nThank you ${name}`);
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        toast.dismiss(loadingToast);
       });
   };
 
