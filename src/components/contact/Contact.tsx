@@ -4,11 +4,11 @@ import { faSquareGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import toast, { Toaster } from "react-hot-toast";
 import { BASE_URL } from "@site/src/Constants";
-
+import axios from "axios";
 const Contact: React.FC = () => {
   console.log(BASE_URL + "/api/mail/send");
 
-  const notify = (event: any) => {
+  const notify = async (event: any) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
@@ -33,20 +33,20 @@ const Contact: React.FC = () => {
       },
       body: JSON.stringify(data),
     };
-    fetch(BASE_URL + "/api/mail/send", requestOptions)
-      .then((response) => {
-        console.log(response);
-        response.json();
-      })
-      .then((data) => {
-        toast.success(`Your message has been sent.\nThank you ${name}`);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        toast.dismiss(loadingToast);
-      });
+    try {
+      const response = await axios.post(
+        BASE_URL + "/api/mail/send",
+        requestOptions
+      );
+
+      console.log(response);
+      toast.success(`Your message has been sent.\nThank you ${name}`);
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error(`Something went wrong.`);
+    } finally {
+      toast.dismiss(loadingToast);
+    }
   };
 
   return (
