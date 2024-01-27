@@ -6,6 +6,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { BASE_URL } from "@site/src/Constants";
 import axios, { AxiosRequestConfig } from "axios";
 const Contact: React.FC = () => {
+  console.log(BASE_URL);
+
   const notify = async (event: any) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -27,6 +29,7 @@ const Contact: React.FC = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     };
 
     try {
