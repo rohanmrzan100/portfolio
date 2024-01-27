@@ -6,6 +6,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { BASE_URL } from "@site/src/Constants";
 
 const Contact: React.FC = () => {
+  console.log(BASE_URL + "/api/mail/send");
+
   const notify = (event: any) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -34,7 +36,6 @@ const Contact: React.FC = () => {
     fetch(BASE_URL + "/api/mail/send", requestOptions)
       .then((response) => {
         console.log(response);
-
         response.json();
       })
       .then((data) => {
