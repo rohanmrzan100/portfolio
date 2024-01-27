@@ -4,10 +4,8 @@ import { faSquareGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import toast, { Toaster } from "react-hot-toast";
 import { BASE_URL } from "@site/src/Constants";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 const Contact: React.FC = () => {
-  console.log(BASE_URL + "/api/mail/send");
-
   const notify = async (event: any) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -25,24 +23,23 @@ const Contact: React.FC = () => {
       message: message,
       email: email,
     };
-    const requestOptions = {
-      method: "POST",
-      Credential: true,
+    const requestOptions: AxiosRequestConfig = {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
     };
+
     try {
       const response = await axios.post(
         BASE_URL + "/api/mail/send",
+        data,
         requestOptions
       );
 
       console.log(response);
       toast.success(`Your message has been sent.\nThank you ${name}`);
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
       toast.error(`Something went wrong.`);
     } finally {
       toast.dismiss(loadingToast);
