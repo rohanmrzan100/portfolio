@@ -2,10 +2,11 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
+import "dotenv/config";
+
 const config: Config = {
   title: "Rohan Maharjan",
   tagline: "Rohan Maharjan",
-
   // Set the production url of your site here
   url: "https://maharjanrohan.netlify.app/",
   // Set the /<baseUrl>/ pathname under which your site is served

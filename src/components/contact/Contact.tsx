@@ -1,29 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import toast, { Toaster } from "react-hot-toast";
+import { BASE_URL } from "@site/src/Constants";
 
 const Contact: React.FC = () => {
   const notify = (event: any) => {
     event.preventDefault();
+    toast.loading("Loading...");
     const name = event.target.name.value;
     const email = event.target.email.value;
-    const text = event.target.text.value;
- 
-    if (
-      name == "" ||
-      name == undefined ||
-      email == "" ||
-      email == undefined ||
-      text == "" ||
-      text == undefined
-    ) {
+    const message = event.target.text.value;
+
+    if (!name || !email || !message) {
       toast.error("Please input all fields");
       return;
     }
 
-    toast.success(`Your message has been sent.\nThank you ${name}`);
+    const data = {
+      name: name,
+      message: message,
+      email: email,
+    };
+    const requestOptions = {
+      method: "POST",
+      Credential: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    fetch(BASE_URL + "/api/mail/send", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Response:", data);
+        toast.success(`Your message has been sent.\nThank you ${name}`);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -97,6 +113,7 @@ const Contact: React.FC = () => {
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="text"
               placeholder=""
+              // value={formData.name}
             />
           </div>
           <div className="mt-8">
@@ -110,6 +127,7 @@ const Contact: React.FC = () => {
               name="email"
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="email"
+              // value={formData.email}
             />
           </div>
           <div className="mt-8">
@@ -120,6 +138,7 @@ const Contact: React.FC = () => {
               Message
             </label>
             <textarea
+              // value={formData.message}
               name="text"
               className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
             ></textarea>
