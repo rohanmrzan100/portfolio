@@ -2,16 +2,15 @@
 id: getting-tarted
 title: Getting Started
 tags:
-  - Demo
   - Getting started
 ---
+
+## Hello , these are the tutorials 
+
+
+
 
 
 ```js
 console.log('Hello World !.');
 ```
-:::danger
-
-Some **content** with _Markdown_ .
-
-:::

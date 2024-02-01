@@ -16,9 +16,18 @@
   --ifm-menu-color: white;
   --ifm-menu-color-active: rgb(104, 172, 209);
 
-  --bg-primary: #0D0B14;
+  --bg-primary: #0d0b14;
 
   --ifm-breadcrumb-separator: none;
+}
+
+header > h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
 }
 .navBtn {
   width: 150px;
@@ -110,4 +119,12 @@ a {
 
 .menu__link:hover {
   background-color: var(--ifm-color-primary-darkest);
+}
+
+.table-of-contents {
+  font-size: 16px;
+}
+
+.table-of-contents__link {
+  color: white;
 }
